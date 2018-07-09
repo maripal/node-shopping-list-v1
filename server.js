@@ -31,6 +31,14 @@ app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
 });
 
+const {Recipes} = require('./models');
+
+Recipes.create('chocolate milk', ['cocoa', 'milk', 'sugar']);
+
+app.get('/recipes', (req, res) => {
+  res.json(Recipes.get());
+});
+
 app.listen(process.env.PORT || 8080, () => {
   console.log(`Your app is listening on port ${process.env.PORT || 8080}`);
 });
